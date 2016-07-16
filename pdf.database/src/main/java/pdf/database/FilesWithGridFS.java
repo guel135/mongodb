@@ -28,12 +28,12 @@ public class FilesWithGridFS {
 
         final String name = "filename4671.pdf";
         final String name2 = "filename17887.jpg";
-        final String url = "C:\\Users\\u0400101\\Downloads\\mongoTest\\";
+        final String url = "resources/";
 
-        final String filename = "C:\\Users\\u0400101\\Downloads\\TestRunReport-2016-06-30T08_53_17+02_00.pdf";
+        final String filename = "resources/git.pdf";
         final String filename2 = "C:\\Users\\u0400101\\Downloads\\vitaphone.jpg";
-
-        // generateData( db, filename, ".pdf", 1000000 );
+        System.out.println( "start program" );
+        // generateData( db, filename, ".pdf", 5 );
         retrieveData( name, url, db );
 
         mongoClient.close();
@@ -92,6 +92,7 @@ public class FilesWithGridFS {
         final GridFSBucket gridFSBucket = GridFSBuckets.create( db, "fileCollection" );
 
         final String filename = url + name;
+        System.out.println( "url es" + filename );
         final FileOutputStream streamToDownloadTo = new FileOutputStream( filename );
         final GridFSDownloadByNameOptions downloadOptions = new GridFSDownloadByNameOptions();
 
