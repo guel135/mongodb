@@ -26,12 +26,12 @@ public class FilesWithGridFS {
         final MongoClient mongoClient = new MongoClient( "localhost", 27017 );
         final MongoDatabase db = mongoClient.getDatabase( "files" );
 
-        final String name = "filename4671.pdf";
+        final String name = "filename444671.pdf";
         final String name2 = "filename17887.jpg";
         final String url = "resources/";
 
         final String filename = "resources/git.pdf";
-        final String filename2 = "C:\\Users\\u0400101\\Downloads\\vitaphone.jpg";
+        final String filename2 = "resources/car.jpg";
         System.out.println( "start program" );
         // generateData( db, filename, ".pdf", 5 );
         retrieveData( name, url, db );
@@ -56,7 +56,7 @@ public class FilesWithGridFS {
                 // Create some custom options
                 final GridFSUploadOptions options = new GridFSUploadOptions()
                         .chunkSizeBytes( 1024 )
-                        .metadata( new Document( "type", "file/" + extension ).append( "typemeasurement", "notype" ) );
+                        .metadata( new Document( "type", "file/" + extension ) );
 
                 final ObjectId fileId = gridFSBucket.uploadFromStream( "filename" + i + extension, streamToUploadFrom, options );
                 System.out.println( "insert number " + i );
